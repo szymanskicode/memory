@@ -1,0 +1,24 @@
+{
+  "users": [
+    {
+      "name": "kinga",
+      "time": 70,
+      "id": 1
+    },
+    {
+      "name": "tato",
+      "time": 47,
+      "id": 2
+    },
+    {
+      "name": "aga",
+      "time": 108,
+      "id": 3
+    },
+    {
+      "name": "aga",
+      "time": 44,
+      "id": 4
+    }
+  ]
+}
