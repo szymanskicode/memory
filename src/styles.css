@@ -15,7 +15,6 @@ html,
 body {
   padding: 0;
   margin: 0;
-  background-color: #c4c4c4;
 }
 
 body {
@@ -215,8 +214,7 @@ input.form-control:focus {
   left: 3px;
   bottom: 3px;
   right: 3px;
-  background: #4679bd;
-  background: center center no-repeat;
+  background: center center no-repeat #4679bd;
   background-size: cover;
   background-image: url(./images/card-bg.jpg);
   border-radius: 10px;

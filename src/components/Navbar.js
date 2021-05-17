@@ -14,7 +14,7 @@ const Navbar = () => {
       style={{ backgroundColor: 'rgba(0, 0, 0, 0.25)' }}
     >
       <div className='container-fluid'>
-        <Link className='navbar-brand' to='/'>
+        <Link className='navbar-brand' to='/' style={{ opacity: 1 }}>
           MEMORY
         </Link>
         <button
@@ -35,6 +35,7 @@ const Navbar = () => {
                 onClick={() => closeNavbar()}
                 className='nav-link'
                 to='/game'
+                style={{ opacity: 0.8 }}
               >
                 Graj
               </Link>
@@ -46,6 +47,7 @@ const Navbar = () => {
                 onClick={() => closeNavbar()}
                 className='nav-link'
                 to='/scores'
+                style={{ opacity: 0.8 }}
               >
                 Wyniki
               </Link>
