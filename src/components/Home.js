@@ -6,31 +6,33 @@ const Home = (props) => {
   const history = useHistory();
 
   const [username, setUsername] = useState('');
+  const [usernameFlag, setUsernameFlag] = useState(false);
   const [error, setError] = useState('');
   const [formValid, setFormValid] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Sprawdzenie błędów w nazwie gracza
+    // Player name validation
     if (username.trim().length < 1) {
-      setError('Podaj nazwę gracza');
+      setError('Podaj nazwę gracza.');
     } else if (username.trim().length > 10) {
-      setError('Nazwa jest za długa (max 10 znaków)');
+      setError('Nazwa jest za długa (max 10 znaków).');
     } else {
       setError('');
       setFormValid(true);
       setUser(username.trim());
+      setUsernameFlag((prev) => !prev);
     }
   };
 
-  // Przekierowanie użytkownika do /game po prawidłowym ustawieniu nazwy
+  // If player name is set, redirect to game
   useEffect(async () => {
     if (user && formValid) {
       await setFormValid(false);
       history.push('/game');
     }
-  }, [user]);
+  }, [user, usernameFlag]);
 
   return (
     <>
@@ -49,7 +51,7 @@ const Home = (props) => {
                   className='form-label text-center'
                   style={{ display: 'block', fontSize: '20px' }}
                 >
-                  PODAJ NAZWĘ GRACZA
+                  <h1 style={{ fontSize: '16px' }}>PODAJ NAZWĘ GRACZA</h1>
                 </label>
                 <input
                   onChange={(e) => {

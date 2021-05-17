@@ -3,7 +3,7 @@ import { useHistory, Link } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import Card from './Card';
 
-// Obrazki kart
+// Card images
 import img1 from '../images/card1.jpg';
 import img2 from '../images/card2.jpg';
 import img3 from '../images/card3.jpg';
@@ -17,7 +17,7 @@ const Game = (props) => {
   const { user } = props.data;
   const history = useHistory();
 
-  // Lokalny state
+  // Local state
   const [intervalId, setIntervalId] = useState(null);
   const [gameStarted, setGameStarted] = useState(false);
   const [gameFinished, setGameFinished] = useState(false);
@@ -28,12 +28,12 @@ const Game = (props) => {
   const [pairs, setPairs] = useState(0);
   const [error, setError] = useState('');
 
-  // Przekieruj użytkownika jeżeli nie podał nazwy gracza
+  // Redirect if there is no user
   useEffect(() => {
     !user && history.push('/');
   }, []);
 
-  // Tasowanie kart przed rozpoczęciem gry
+  // Cards shuffle
   useEffect(() => {
     const deck = [
       {
@@ -189,7 +189,7 @@ const Game = (props) => {
     setCards(deck);
   }, []);
 
-  // Start timera po rozpoczęciu gry
+  // Start the timer
   useEffect(() => {
     if (gameStarted) {
       const iid = setInterval(() => {
@@ -202,9 +202,9 @@ const Game = (props) => {
     };
   }, [gameStarted]);
 
-  // Wybór kart
+  // Cards picking
   const pickCard = async (id, value) => {
-    // Wybór pierwszej karty
+    // First pick
     if (Object.keys(pick1).length === 0) {
       setPick1({ id, value });
       const newCards = cards;
@@ -217,7 +217,7 @@ const Game = (props) => {
       setCards(newCards);
     }
 
-    // Wybór drugiej karty
+    // Second pick
     else {
       setPick2({ id, value });
       const newCards = cards;
@@ -226,17 +226,16 @@ const Game = (props) => {
           card.active = true;
           card.blocked = true;
         }
-        // Po wyboże drugiej karty zablokuj pozostałe
+        // Block other cards after second pick
         card.blocked = true;
       });
       setCards(newCards);
     }
   };
 
-  // Porónanie kart
+  // Cards comparison
   useEffect(() => {
     if (Object.keys(pick2).length !== 0 && pick1.value && pick2.value) {
-      // Jeżeli karty do siebie pasują (value)
       if (pick1.value === pick2.value) {
         const newCards = cards;
         newCards.forEach((card) => {
@@ -248,10 +247,7 @@ const Game = (props) => {
         setPairs((prev) => prev + 1);
         setPick1({});
         setPick2({});
-      }
-
-      // Jeżeli karty do siebie nie pasują (value)
-      else {
+      } else {
         setTimeout(() => {
           const newCards = cards;
           newCards.forEach((card) => {
@@ -272,7 +268,7 @@ const Game = (props) => {
     }
   }, [pick2.value]);
 
-  // Reset gry
+  // Restart game
   const handleReset = () => {
     clearInterval(intervalId);
 
@@ -297,13 +293,13 @@ const Game = (props) => {
     setCards(newCards);
   };
 
-  // Zakończenie gry i zapisanie wyniku
+  // End game and save score
   useEffect(() => {
     if (pairs === 8) {
       clearInterval(intervalId);
       setGameFinished(true);
 
-      // Zapisanie danych do bazy danych
+      // Saving score to database
       const data = { name: user, time: seconds };
 
       fetch('http://localhost:5000/users', {
@@ -369,8 +365,10 @@ const Game = (props) => {
                     <div className='info-box'>
                       {!gameStarted && !gameFinished && (
                         <div className='info-content'>
-                          <h4 style={{ marginBottom: '20px' }}>
-                            Jesteś gotowy?
+                          <h4
+                            style={{ marginBottom: '20px', fontSize: '16px' }}
+                          >
+                            JESTEŚ GOTOWY?
                           </h4>
                           <button
                             onClick={() => setGameStarted(true)}

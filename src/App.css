@@ -129,6 +129,10 @@ nav a.navbar-brand {
   margin-bottom: 0px;
 }
 
+.btn {
+  border-radius: 2px;
+}
+
 .btn-primary {
   background-color: rgba(0, 0, 0, 0.35) !important;
   border-color: rgba(0, 0, 0, 0.35) !important;
@@ -136,11 +140,12 @@ nav a.navbar-brand {
   font-weight: bold;
   font-size: 12px;
   box-shadow: none !important;
-  transition: all 1s ease;
+  transition: all 0.2s ease;
 }
 
 .btn-primary:hover {
-  transform: scale(1.05);
+  background-color: rgba(0, 0, 0, 0.4) !important;
+  border-color: rgba(0, 0, 0, 0.4) !important;
 }
 
 input.form-control {

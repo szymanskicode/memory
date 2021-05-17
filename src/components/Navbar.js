@@ -1,6 +1,13 @@
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
+  const closeNavbar = () => {
+    const navbar = document.getElementById('hamburgerMenu');
+    if (navbar.classList.contains('show')) {
+      navbar.classList.remove('show');
+    }
+  };
+
   return (
     <nav
       className='navbar fixed-top navbar-expand-lg navbar-light '
@@ -24,14 +31,22 @@ const Navbar = () => {
         <div className='collapse navbar-collapse' id='hamburgerMenu'>
           <ul className='navbar-nav me-auto mb-2 mb-lg-0'>
             <li className='nav-item'>
-              <Link className='nav-link' to='/game'>
+              <Link
+                onClick={() => closeNavbar()}
+                className='nav-link'
+                to='/game'
+              >
                 Graj
               </Link>
             </li>
           </ul>
           <ul className='navbar-nav mb-2 mb-lg-0'>
             <li className='nav-item'>
-              <Link className='nav-link' to='/scores'>
+              <Link
+                onClick={() => closeNavbar()}
+                className='nav-link'
+                to='/scores'
+              >
                 Wyniki
               </Link>
             </li>

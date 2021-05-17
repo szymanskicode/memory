@@ -49,16 +49,16 @@ const Scores = () => {
                 >
                   <thead>
                     <tr>
-                      <th scope='col'>Gracz</th>
+                      <th scope='col'>GRACZ</th>
                       <th scope='col' style={{ textAlign: 'right' }}>
-                        Czas
+                        CZAS
                       </th>
                     </tr>
                   </thead>
                   <tbody>
                     {topUsers.map((topUser) => {
                       return (
-                        <tr>
+                        <tr key={Math.floor(Math.random() * 1000000)}>
                           <td>{topUser.name}</td>
                           <td style={{ textAlign: 'right' }}>{topUser.time}</td>
                         </tr>
@@ -70,7 +70,7 @@ const Scores = () => {
 
               {topUsers.length < 1 && !error && (
                 <div className='alert alert-info'>
-                  Brak wyników do wyświetlenia
+                  Brak wyników do wyświetlenia.
                 </div>
               )}
 

@@ -14,7 +14,7 @@ const Footer = () => {
                 style={{ marginBottom: '8px' }}
               >
                 <strong style={{ fontSize: '65%' }}>
-                  © PATRYCJA SZAJNA {year}
+                  © SZYMANSKICODE {year}
                 </strong>
               </p>
             </div>
