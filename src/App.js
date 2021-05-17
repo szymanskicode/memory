@@ -7,7 +7,7 @@ import Game from './components/Game';
 import Scores from './components/Scores';
 
 // CSS Styles
-import './App.css';
+import './styles.css';
 
 function App() {
   const [user, setUser] = useState(null);
