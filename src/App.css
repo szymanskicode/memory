@@ -1,7 +1,9 @@
 * {
   box-sizing: border-box;
   outline: none !important;
+}
 
+.game-container {
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */
   -khtml-user-select: none; /* Konqueror HTML */
