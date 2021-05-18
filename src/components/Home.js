@@ -41,6 +41,9 @@ const Home = (props) => {
         <div className='row'>
           <div className='col-12'>
             <form
+              onSubmit={(e) => {
+                handleSubmit(e);
+              }}
               className='mb-3'
               style={{ maxWidth: '300px', margin: '0 auto' }}
               autoComplete='off'
@@ -59,13 +62,14 @@ const Home = (props) => {
                   }}
                   value={username}
                   type='text'
+                  name='username'
                   className='form-control'
                   id='username'
                 />
               </div>
               {error && <div className='alert alert-danger'>{error}</div>}
               <button
-                onClick={handleSubmit}
+                type='submit'
                 className='btn btn-primary'
                 style={{ display: 'block', margin: '0 auto' }}
               >
