@@ -35,7 +35,7 @@ body {
 }
 
 .offset {
-  display: none;
+  display: block;
   width: 100%;
   height: 75px;
   border: 0;
