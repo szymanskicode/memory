@@ -14,7 +14,7 @@ const Navbar = () => {
       style={{ backgroundColor: 'rgba(0, 0, 0, 0.25)' }}
     >
       <div className='container-fluid'>
-        <Link className='navbar-brand' to='/'>
+        <Link className='navbar-brand' to='/' onClick={() => closeNavbar()}>
           MEMORY
         </Link>
         <button
