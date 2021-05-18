@@ -1,4 +1,0 @@
-[[redirects]]
-  from = "/*"
-  to = "/intex.html"
-  status == 200
