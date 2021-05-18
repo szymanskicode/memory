@@ -72,20 +72,20 @@ nav.navbar-dark {
 
 nav a {
   color: #fff !important;
-  opacity: 65%;
+  opacity: 0.6;
 }
 
 nav a:hover {
-  opacity: 85%;
+  opacity: 0.8;
 }
 
 nav a.navbar-brand {
-  opacity: 100%;
+  opacity: 1;
 }
 
 .navbar-light .navbar-toggler {
   color: #fff !important;
-  opacity: 100%;
+  opacity: 1;
   border-color: transparent !important;
 }
 
