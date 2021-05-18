@@ -17,12 +17,12 @@ html,
 body {
   padding: 0;
   margin: 0;
+  background-color: #be5b94;
 }
 
 body {
   width: 100%;
   min-height: 100vh;
-  background-color: #be5b94;
   color: #f2f2f2;
   background: center center no-repeat;
   background-size: cover;
@@ -31,7 +31,7 @@ body {
 
 .App,
 #root {
-  background-color: #be5b94;
+  background-color: transparent;
 }
 
 .App {
