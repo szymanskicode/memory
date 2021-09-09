@@ -1,15 +1,13 @@
 const Card = ({ card, pickCard }) => {
   return (
     <div
-      className={`card-box ${card.blocked && 'blocked'} ${
-        card.active && 'active'
-      }`}
+      className={`card-box ${card.blocked && 'blocked'} ${card.active && 'active'}`}
     >
       <div className='card-content'>
         <img
           draggable={false}
           src={card.img}
-          alt='image'
+          alt='card-img'
           onClick={() => {
             !card.blocked && !card.active && pickCard(card.id, card.value);
           }}
