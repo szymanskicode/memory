@@ -1,17 +1,17 @@
-import { useEffect, useState } from 'react';
-import { useHistory, Link } from 'react-router-dom';
-import { v4 as uuidv4 } from 'uuid';
-import Card from './Card';
+import { useEffect, useState } from "react";
+import { useHistory, Link } from "react-router-dom";
+import { v4 as uuidv4 } from "uuid";
+import Card from "./Card";
 
 // Card images
-import img1 from '../images/card1.jpg';
-import img2 from '../images/card2.jpg';
-import img3 from '../images/card3.jpg';
-import img4 from '../images/card4.jpg';
-import img5 from '../images/card5.jpg';
-import img6 from '../images/card6.jpg';
-import img7 from '../images/card7.jpg';
-import img8 from '../images/card8.jpg';
+import img1 from "../images/card1.jpg";
+import img2 from "../images/card2.jpg";
+import img3 from "../images/card3.jpg";
+import img4 from "../images/card4.jpg";
+import img5 from "../images/card5.jpg";
+import img6 from "../images/card6.jpg";
+import img7 from "../images/card7.jpg";
+import img8 from "../images/card8.jpg";
 
 const Game = (props) => {
   const { user } = props.data;
@@ -26,11 +26,11 @@ const Game = (props) => {
   const [pick1, setPick1] = useState({});
   const [pick2, setPick2] = useState({});
   const [pairs, setPairs] = useState(0);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
 
   // Redirect if there is no user
   useEffect(() => {
-    !user && history.push('/');
+    !user && history.push("/");
   }, []);
 
   // Cards shuffle
@@ -39,7 +39,7 @@ const Game = (props) => {
       {
         id: uuidv4(),
         sort: Math.random() * 100,
-        name: 'A',
+        name: "A",
         value: 1,
         img: img1,
         blocked: false,
@@ -48,7 +48,7 @@ const Game = (props) => {
       {
         id: uuidv4(),
         sort: Math.random() * 100,
-        name: 'B',
+        name: "B",
         value: 1,
         img: img1,
         blocked: false,
@@ -57,7 +57,7 @@ const Game = (props) => {
       {
         id: uuidv4(),
         sort: Math.random() * 100,
-        name: 'C',
+        name: "C",
         value: 2,
         img: img2,
         blocked: false,
@@ -66,7 +66,7 @@ const Game = (props) => {
       {
         id: uuidv4(),
         sort: Math.random() * 100,
-        name: 'D',
+        name: "D",
         value: 2,
         img: img2,
         blocked: false,
@@ -75,7 +75,7 @@ const Game = (props) => {
       {
         id: uuidv4(),
         sort: Math.random() * 100,
-        name: 'E',
+        name: "E",
         value: 3,
         img: img3,
         blocked: false,
@@ -84,7 +84,7 @@ const Game = (props) => {
       {
         id: uuidv4(),
         sort: Math.random() * 100,
-        name: 'F',
+        name: "F",
         value: 3,
         img: img3,
         blocked: false,
@@ -93,7 +93,7 @@ const Game = (props) => {
       {
         id: uuidv4(),
         sort: Math.random() * 100,
-        name: 'G',
+        name: "G",
         value: 4,
         img: img4,
         blocked: false,
@@ -102,7 +102,7 @@ const Game = (props) => {
       {
         id: uuidv4(),
         sort: Math.random() * 100,
-        name: 'H',
+        name: "H",
         value: 4,
         img: img4,
         blocked: false,
@@ -111,7 +111,7 @@ const Game = (props) => {
       {
         id: uuidv4(),
         sort: Math.random() * 100,
-        name: 'I',
+        name: "I",
         value: 5,
         img: img5,
         blocked: false,
@@ -120,7 +120,7 @@ const Game = (props) => {
       {
         id: uuidv4(),
         sort: Math.random() * 100,
-        name: 'J',
+        name: "J",
         value: 5,
         img: img5,
         blocked: false,
@@ -129,7 +129,7 @@ const Game = (props) => {
       {
         id: uuidv4(),
         sort: Math.random() * 100,
-        name: 'K',
+        name: "K",
         value: 6,
         img: img6,
         blocked: false,
@@ -138,7 +138,7 @@ const Game = (props) => {
       {
         id: uuidv4(),
         sort: Math.random() * 100,
-        name: 'L',
+        name: "L",
         value: 6,
         img: img6,
         blocked: false,
@@ -147,7 +147,7 @@ const Game = (props) => {
       {
         id: uuidv4(),
         sort: Math.random() * 100,
-        name: 'M',
+        name: "M",
         value: 7,
         img: img7,
         blocked: false,
@@ -156,7 +156,7 @@ const Game = (props) => {
       {
         id: uuidv4(),
         sort: Math.random() * 100,
-        name: 'N',
+        name: "N",
         value: 7,
         img: img7,
         blocked: false,
@@ -165,7 +165,7 @@ const Game = (props) => {
       {
         id: uuidv4(),
         sort: Math.random() * 100,
-        name: 'O',
+        name: "O",
         value: 8,
         img: img8,
         blocked: false,
@@ -174,7 +174,7 @@ const Game = (props) => {
       {
         id: uuidv4(),
         sort: Math.random() * 100,
-        name: 'P',
+        name: "P",
         value: 8,
         img: img8,
         blocked: false,
@@ -209,7 +209,7 @@ const Game = (props) => {
       setPick1({ id, value });
       const newCards = cards;
       newCards.forEach((card) => {
-        if (card.id == id) {
+        if (card.id === id) {
           card.active = true;
           card.blocked = true;
         }
@@ -222,7 +222,7 @@ const Game = (props) => {
       setPick2({ id, value });
       const newCards = cards;
       newCards.forEach((card) => {
-        if (card.id == id) {
+        if (card.id === id) {
           card.active = true;
           card.blocked = true;
         }
@@ -302,10 +302,10 @@ const Game = (props) => {
       // Saving score to database
       const data = { name: user, time: seconds };
 
-      fetch('http://localhost:5000/users', {
-        method: 'POST',
+      fetch("http://localhost:5000/users", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(data),
       })
@@ -317,7 +317,9 @@ const Game = (props) => {
           }
         })
         .catch((err) => {
-          setError('Błąd bazy danych - wynik nie został zapisany.');
+          setError(
+            "Wersja demonstracyjna nie obsługuje json-server - wynik nie został zapisany."
+          );
         });
     }
   }, [pairs]);
@@ -326,34 +328,34 @@ const Game = (props) => {
     <>
       {user && (
         <>
-          <div className='container game-container'>
-            <div className='game-wrapper'>
-              <div className='row'>
-                <div className='col-12'>
-                  <div className='game-data-wrapper'>
-                    <div className='player'>
-                      <p className='player'>Gracz</p>
-                      <h4 className='player'>{user}</h4>
+          <div className="container game-container">
+            <div className="game-wrapper">
+              <div className="row">
+                <div className="col-12">
+                  <div className="game-data-wrapper">
+                    <div className="player">
+                      <p className="player">Gracz</p>
+                      <h4 className="player">{user}</h4>
                     </div>
-                    <div className='reset'>
+                    <div className="reset">
                       {gameStarted && (
                         <button
                           onClick={() => handleReset()}
-                          className='btn btn-primary'
+                          className="btn btn-primary"
                         >
                           Restart
                         </button>
                       )}
                     </div>
-                    <div className='time'>
-                      <p className='time'>Czas</p>
-                      <h4 className='time'>{seconds}</h4>
+                    <div className="time">
+                      <p className="time">Czas</p>
+                      <h4 className="time">{seconds}</h4>
                     </div>
                   </div>
                 </div>
                 <div
-                  className='col-12 text-center'
-                  style={{ position: 'relative' }}
+                  className="col-12 text-center"
+                  style={{ position: "relative" }}
                 >
                   {gameStarted &&
                     !gameFinished &&
@@ -362,32 +364,32 @@ const Game = (props) => {
                     ))}
 
                   {(!gameStarted || gameFinished) && (
-                    <div className='info-box'>
+                    <div className="info-box">
                       {!gameStarted && !gameFinished && (
-                        <div className='info-content'>
+                        <div className="info-content">
                           <h4
-                            style={{ marginBottom: '20px', fontSize: '16px' }}
+                            style={{ marginBottom: "20px", fontSize: "16px" }}
                           >
                             JESTEŚ GOTOWY?
                           </h4>
                           <button
                             onClick={() => setGameStarted(true)}
-                            className='btn btn-primary'
+                            className="btn btn-primary"
                           >
                             Rozpocznij
                           </button>
                         </div>
                       )}
                       {gameFinished && (
-                        <div className='info-content'>
-                          <h5 style={{ marginBottom: '20px' }}>KONIEC GRY</h5>
-                          <p className='myscore'>TWÓJ WYNIK</p>
+                        <div className="info-content">
+                          <h5 style={{ marginBottom: "20px" }}>KONIEC GRY</h5>
+                          <p className="myscore">TWÓJ WYNIK</p>
                           <h1>{seconds}</h1>
-                          <Link to='/scores' className='btn btn-primary'>
+                          <Link to="/scores" className="btn btn-primary">
                             Zobacz wyniki
                           </Link>
                           {error && (
-                            <div className='alert alert-danger mt-2'>
+                            <div className="alert alert-danger mt-2">
                               {error}
                             </div>
                           )}

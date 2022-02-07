@@ -1,12 +1,12 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 const Scores = () => {
   const [topUsers, setTopUsers] = useState([]);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetch('http://localhost:5000/users?_sort=time&_order=asc&_limit=10')
+    fetch("http://localhost:5000/users?_sort=time&_order=asc&_limit=10")
       .then((response) => {
         if (response.status !== 200 && response.status !== 304) {
           throw Error;
@@ -24,7 +24,7 @@ const Scores = () => {
       })
       .catch((err) => {
         setError(
-          'Wystąpił problem z bazą danych. Uruchom: json-server --watch db.json --port 5000'
+          "Wersja demonstracyjna nie obsługuje json-server. Uruchom lokalnie: json-server --watch db.json --port 5000"
         );
         setIsLoading(false);
       });
@@ -32,25 +32,25 @@ const Scores = () => {
 
   return (
     <>
-      <div className='offset'></div>
-      <div className='container'>
-        <div className='row'>
+      <div className="offset"></div>
+      <div className="container">
+        <div className="row">
           {isLoading && (
-            <div className='col-12 text-center'>Trwa wczytywanie danych...</div>
+            <div className="col-12 text-center">Trwa wczytywanie danych...</div>
           )}
           {!isLoading && (
-            <div className='col-12 top-users'>
+            <div className="col-12 top-users">
               {!error && <p>TOP 10 GRACZY</p>}
 
               {topUsers.length > 0 && (
                 <table
-                  className='table table-dark table-hover'
-                  style={{ opacity: 0.65, maxWidth: '400px', margin: '0 auto' }}
+                  className="table table-dark table-hover"
+                  style={{ opacity: 0.65, maxWidth: "400px", margin: "0 auto" }}
                 >
                   <thead>
                     <tr>
-                      <th scope='col'>GRACZ</th>
-                      <th scope='col' style={{ textAlign: 'right' }}>
+                      <th scope="col">GRACZ</th>
+                      <th scope="col" style={{ textAlign: "right" }}>
                         CZAS
                       </th>
                     </tr>
@@ -60,7 +60,7 @@ const Scores = () => {
                       return (
                         <tr key={Math.floor(Math.random() * 1000000)}>
                           <td>{topUser.name}</td>
-                          <td style={{ textAlign: 'right' }}>{topUser.time}</td>
+                          <td style={{ textAlign: "right" }}>{topUser.time}</td>
                         </tr>
                       );
                     })}
@@ -69,12 +69,12 @@ const Scores = () => {
               )}
 
               {topUsers.length < 1 && !error && (
-                <div className='alert alert-info'>
+                <div className="alert alert-info">
                   Brak wyników do wyświetlenia.
                 </div>
               )}
 
-              {error && <div className='alert alert-danger'>{error}</div>}
+              {error && <div className="alert alert-danger">{error}</div>}
             </div>
           )}
         </div>
